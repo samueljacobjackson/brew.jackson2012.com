@@ -1,0 +1,185 @@
+body {
+    background-color: #343a40;
+}
+.dropdown-item {
+    cursor: pointer;
+}
+.navbar-toggler {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+}
+.navbar-toggler:focus {
+    outline: none;
+}
+.navbar {
+    padding-left: 52px;
+    z-index: 999;
+}
+
+.ml-auto {
+    padding-right: 20px;
+}
+
+.nav-item-switch {
+    position: inherit;
+}
+
+.modal-dialog-tall,
+.modal-content {
+    height: 90%;
+}
+
+.modal-body {
+    max-height: calc(100% - 120px);
+    overflow-y: scroll;
+}
+
+.thumb {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: inherit;
+}
+.image-select {
+    padding-right: 10px;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-menu li {
+    width: max-content;
+    white-space: normal;
+    overflow: hidden;
+}
+.img-thumbnail {
+    max-height: 75px;
+}
+.alert-fixed {
+    position: fixed;
+    top: 56px;
+    left: 0px;
+    width: 100%;
+    z-index: 9999;
+    border-radius: 0px;
+}
+
+.slim {
+    padding-top: 3px;
+}
+
+.hide-menu-item {
+    display: none;
+}
+
+.show-menu-item {
+    display: block;
+}
+
+.bootstrap-tagsinput > * {
+    margin-right: 3px !important;
+}
+
+.context-menu {
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    background-color: white;
+    box-shadow: 0 0 5px grey;
+    border-radius: 3px;
+}
+
+.context-menu button {
+    width: 100%;
+    background-color: white;
+    border: none;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+}
+
+.context-menu button:hover {
+    background-color: lightgray;
+}
+
+textarea {
+    resize: none;
+}
+
+.popup-dialog {
+    max-width: 300px;
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    background-color: white;
+    box-shadow: 0 0 5px grey;
+    border-radius: 3px;
+}
+.popup-dialog > *::-webkit-scrollbar {
+    display: none;
+}
+
+pre {
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+.custom-nav-item {
+    position: inherit;
+    margin-left: 10px;
+}
+
+.custom-ctx-item {
+    position: inherit;
+}
+
+@font-face {
+    font-family: "FontAwesome";
+    src: url("/static/webfonts/fa-solid-900.ttf");
+    font-weight: 900;
+    font-style: normal;
+}
+
+.alert-minimalist {
+    background-color: rgb(241, 242, 240);
+    border-color: rgba(149, 149, 149, 0.3);
+    border-radius: 3px;
+    color: rgb(149, 149, 149);
+    padding: 10px;
+}
+.alert-minimalist > [data-notify="icon"] {
+    margin-right: 12px;
+    display: inline;
+}
+.alert-minimalist > [data-notify="title"] {
+    color: rgb(51, 51, 51);
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-right: 5px;
+}
+.alert-minimalist > [data-notify="message"] {
+    font-size: 80%;
+    display: block;
+}
+
+.message {
+    max-height: 80px;
+}
+
+.truncated {
+    overflow: hidden;
+}
+
+.dice-box {
+    height: calc(75vh - 10px);
+}
+.dice-log {
+    margin: 0;
+    overflow-y: scroll;
+    min-width: 100px;
+}

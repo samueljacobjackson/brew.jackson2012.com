@@ -1,0 +1,38 @@
+{% extends "layouts/base.html" %} {% block head %} {{ super() }} {% endblock %}
+{% block content %}
+<style>
+  body {
+    width: 100%;
+  }
+  .c {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+</style>
+<div class="c">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{ url_for('static', filename='img/table.png') }}" class="card-img" alt="Green Table">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Welcome to the</br>Virtual Game Table</h5>
+          <p class="card-text">Please sign in using Google.</p>
+          <a id="google-button" href="/login" class="btn btn-block btn-social btn-google">
+            <i class="fab fa-google"></i> Sign in with Google
+          </a>      
+        </div>
+      </div>
+    </div>
+    <div class="col-12 text-right">
+      <small>View our <a target="_blank" href="/tos">Terms of Service</a></small>&emsp13;&emsp13;&emsp13;
+      <small>View our <a target="_blank" href="/privacy">Privacy Policy</a></small>
+    </div>
+  </div>
+</div>
+{% endblock %}

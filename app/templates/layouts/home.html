@@ -1,0 +1,109 @@
+{% extends "layouts/base.html" %} {% block head %} {{ super() }} {% endblock %}
+{% block content %}
+<style>
+    .navbar-toggler {
+        color: #343a40;
+    }
+    .btn-create {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    .mh-50 {
+        max-height: 50vh;
+    }
+</style>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-nav" id="nav-toggler">
+    <i class="fa fa-bars"></i>
+</button>
+<nav class="navbar navbar-expand-lg collapse fixed-top navbar-light bg-light slim show" id="navbar-main-nav">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a id="navbar-brand" class="navbar-brand" href="#">My Brews</a></li>
+        <li class="nav-item">
+            <a class="nav-link page-toggle" href="#" id="nav-select-brew" data-target="card-select-brew" data-name="My Brews">
+            <i class="fas fa-map"></i> My Brews
+            </a>
+        </li>
+    </ul>
+    <ul class="navbar-nav float-md-right">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle float-right"
+                href="#"
+                id="dropdown-uer"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
+                <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a
+            class="nav-link dropdown-toggle float-right"
+            href="#"
+            id="dropdown-info"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >
+            <i class="fas fa-info-circle"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-info">
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" target="_blank" href="https://github.com/samueljacobjackson/brew.jackson2012.com/issues/new/choose">
+                    <i class="fas fa-bug"></i> Report a Bug
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" target="_blank" href="/tos">
+                    <i class="fas fa-file-contract"></i> Terms of Service
+                </a>
+                <a class="dropdown-item" target="_blank" href="/privacy">
+                  <i class="fas fa-file-contract"></i> Privacy Policy
+                </a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<!-- Alert Popup -->
+<div id="alerts" style="position: absolute; top: 56px;"></div>
+
+<!-- Pages -->
+<div id="card-select-brew" class="container-fluid p-5 bg-light page">
+    <div class="row-fluid">
+        <div class="col-10">
+            <div id="brew-list" class="list-group">
+                {%for brew in brews%}
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{brew['name']}}</h5>
+                    </div>
+                    <div class="row w-100">
+                        <div class="col-sm-8 col-md-9 col-lg-10">
+                            <p class="mb-1">{{brew['description']}}</p>
+                        </div>
+                        <div class="col-sm-4 col-md-3 col-lg-2">
+                            <div class="btn-group-vertical float-sm-right" role="group">
+                                <button class="btn btn-secondary brew-edit-brew" data-brewkey="{{brew['key']}}">Open</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        var home = new Home();
+    });
+</script>
+<script>
+    function more() {};
+</script>
+
+{%endblock%}

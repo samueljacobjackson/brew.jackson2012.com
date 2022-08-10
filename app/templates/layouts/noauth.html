@@ -1,0 +1,106 @@
+{% extends "layouts/base.html" %} {% block head %} {{ super() }} {% endblock %}
+{% block content %}
+<style>
+  body {
+    width: 100%;
+  }
+  .c {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+</style>
+<div class="c">
+  {%if not logged_in%}
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{ url_for('static', filename='img/table.png') }}" class="card-img" alt="Green Table">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Welcome to the</br>Virtual Game Table</h5>
+          <p class="card-text">Please sign in using Google.</p>
+          <a id="google-button" href="/login" class="btn btn-block btn-social btn-google">
+            <i class="fab fa-google"></i> Sign in with Google
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-right">
+        <small>View our <a target="_blank" href="/tos">Terms of Service</a></small>&emsp13;&emsp13;&emsp13;
+        <small>View our <a target="_blank" href="/privacy">Privacy Policy</a></small>
+      </div>
+    </div>
+  </div>
+  {%endif%}
+  
+  {%if logged_in%}
+  
+  {%if open_beta %}
+  
+  <div class="card mb-3 mw-75">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h4> Account activation is required </h4>
+          <p>
+            We are currently in early development.
+            If you would like to help test vtable please email 
+            <a href="mailto:sam@jackson2012.com?subject=Vtable%20test%20application">vtable@jackson2012.com</a>
+            with the subject line "Vtable test application".
+            Please indicate if you will be taking a GM role.
+            If you have been invited to a game include the email of the GM who invited you.
+            We are a small team working in our spare time so please be patient.
+          </p>
+          <p>
+            <i class="fas fa-bug"></i> <a target="_blank" href="https://github.com/samueljacobjackson/VTable/issues/new/choose">Report a Bug</a>
+          </p>
+        </div>
+        <div class="col-12 text-right">
+          <small>View our <a target="_blank" href="/tos">Terms of Service</a></small>&emsp13;&emsp13;&emsp13;
+          <small>View our <a target="_blank" href="/privacy">Privacy Policy</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%endif%} 
+
+  <div class="card mb-3 mw-75">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3 mw-75">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h4> Play the demo as one of three players </h4>
+          <div class="list-group">
+            <a href="/demo/?player=e61172a6072e4910af380d318ee43391" class="list-group-item list-group-item-action">
+              Play as Sam (GM)
+            </a>
+            <a href="/demo/?player=b9ae78b356344cbd9a32081a8ed5537a" class="list-group-item list-group-item-action">
+              Play as Brandon
+            </a>
+            <a href="/demo/?player=ca39afba81a4cd28267a2323543fbda1" class="list-group-item list-group-item-action">
+              Play as Bruce
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    {%endif%}
+</div>
+{% endblock %}
