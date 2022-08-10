@@ -1,13 +1,10 @@
-import os
-if os.environ.get('BREWLOG', 'PROD') != 'DEV':
-    import eventlet
-    eventlet.monkey_patch()
-
 from flask import Flask, render_template, make_response
 from flask_session import Session
 from flask_cors import CORS
 
-#import os
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 application = Flask(__name__)
 
