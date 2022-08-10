@@ -33,7 +33,7 @@ def index():
 
     dev = False
     open_beta = False
-    if os.environ.get('BrewLog', 'PROD') == 'DEV':
+    if os.environ.get('FLASK_DEBUG', 'FALSE') == 'TRUE':
         open_beta = False
         dev = True
 
@@ -58,13 +58,10 @@ def index():
             brews.append(brew)
 
         return render_template('layouts/home.html',
-                               name=current_user.name,
                                email=current_user.email,
-                               profile_pic=current_user.profile_pic,
                                active=current_user.active,
                                brews=brews,
                                brew_key=brew_key,
-                               open_beta=open_beta,
                                dev=dev)
 
 

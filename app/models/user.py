@@ -17,11 +17,10 @@ from app.util import BrewLog, DecimalEncoder
 from app.aws import Dynamo
 
 class User(UserMixin):
-    def __init__(self, id_, email, profile_pic, key=None, brews=None, active=None, expire=None):
+    def __init__(self, id_, email, key=None, brews=None, active=None, expire=None):
         self.id = id_
         self.key = key or ''
         self.email = email
-        self.profile_pic = profile_pic
         self.brews = brews or []
         self.active = active or False
         self.expire = expire or time.time()
@@ -34,7 +33,6 @@ class User(UserMixin):
         user = User(
             id_=u['id'],
             email=u['info']['email'],
-            profile_pic=u['info']['profile_pic'],
             key=u['info']['key'],
             brews=u['info']['brews'],
             active=u['info']['active'],
@@ -69,11 +67,10 @@ class User(UserMixin):
         User._save(user['id'], user['email'], user['info'])
 
     @staticmethod
-    def create(id_, email, name, profile_pic):
+    def create(id_, email, name):
         info = {}
         info['key'] = random.choice('abcdef') + str(uuid.uuid4()).replace("-", "")[1:]
         info['email'] = email
-        info['profile_pic'] = profile_pic
         info['brews'] = []
         info['active'] = True
         info['expire'] = time.time()

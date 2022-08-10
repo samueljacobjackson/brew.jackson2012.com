@@ -17,7 +17,7 @@ application.config['SESSION_KEY_PREFIX'] = "brewlog"
 application.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024
 application.config['GOOGLE_LOGIN_REDIRECT_SCHEME'] = "https"
 
-if os.environ.get('BREWLOG', 'PROD') == 'DEV':
+if os.environ.get('FLASK_DEBUG', 'FALSE') == 'TRUE':
     application.debug = True
 
 application._static_folder = os.path.abspath("./app/templates/static/")
@@ -29,7 +29,7 @@ from app import routes
 name = '__main__'
 
 if __name__ == name:
-    if os.environ.get('BREWLOG', 'PROD') == 'DEV':
-        application.run(application, host='0.0.0.0', port=5000, keyfile='key.pem', certfile='cert.pem')
+    if os.environ.get('FLASK_DEBUG', 'FALSE') == 'TRUE':
+        application.run(application, host='0.0.0.0', port=5000, ssl_context=('cert.pem', 'key.pem'))
     else:
-        application.run(application, host='0.0.0.0', port=5000)
+        application.run(application, ssl_context='adhoc', host='0.0.0.0', port=5000)
