@@ -2,7 +2,7 @@ import json
 import random
 import uuid
 
-from app.aws import Dynamo, S3
+from app.aws import Dynamo
 from app.util import BrewLog, Key_Helper, BrewLog, JSON, Html_Helper, Tag_Helper
 
 class Brew(object):       

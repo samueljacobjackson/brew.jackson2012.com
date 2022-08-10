@@ -14,8 +14,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from app import application as app
-from app import dice
-from app.aws import S3
 from app.util import DecimalEncoder, Email_Helper
 from app.models.brew import Brew
 from app.models.user import User

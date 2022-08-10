@@ -10,7 +10,6 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from PIL import Image
 import json
 import decimal
 import random

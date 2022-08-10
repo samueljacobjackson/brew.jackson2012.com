@@ -28,14 +28,11 @@ application._static_folder = os.path.abspath("./app/templates/static/")
 Session(application)
 
 from app import routes
-import app.sock as sock
 
 name = '__main__'
-if os.environ.get('BREWLOG', 'PROD') == 'DEV':
-        name = 'app'
 
 if __name__ == name:
     if os.environ.get('BREWLOG', 'PROD') == 'DEV':
-        sock.socketio.run(application, host='0.0.0.0', port=5000, keyfile='key.pem', certfile='cert.pem')
+        application.run(application, host='0.0.0.0', port=5000, keyfile='key.pem', certfile='cert.pem')
     else:
-        sock.socketio.run(application, host='0.0.0.0', port=5000)
+        application.run(application, host='0.0.0.0', port=5000)
