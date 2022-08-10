@@ -70,15 +70,11 @@ class BrewLog:
     @staticmethod
     def Brew():
         table = 'BrewLog_Brew'
-        if os.environ.get('BREWLOG', 'PROD') == 'DEV':
-            table = 'Dev_BrewLog_Game'
         return table
 
     @staticmethod
     def User():
         table = 'BrewLog_User'
-        if os.environ.get('BREWLOG', 'PROD') == 'DEV':
-            table = 'Dev_BrewLog_User'
         return table
     
 class Scrubber:
